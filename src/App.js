@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
 
 const App = () => {
@@ -8,7 +9,6 @@ const App = () => {
 	const addTodo = () => {
 		if (newTodo.trim() !== "") {
 			setTodos([...todos, { id: Date.now(), text: newTodo }])
-			console.log("Todo Added")
 			setNewTodo("")
 		}
 	}
@@ -18,24 +18,41 @@ const App = () => {
 	}
 
 	return (
-		<div className="App">
-			<h1>Todo App</h1>
-			<div>
+		<div className="container mt-5">
+			<h1 className="text-center mb-4">Todo App</h1>
+			<div className="input-group mb-3">
 				<input
 					type="text"
 					value={newTodo}
 					onChange={e => setNewTodo(e.target.value)}
+					className="form-control"
 				/>
-				<button onClick={addTodo}>Add Todo</button>
+				<div className="input-group-append">
+					<button onClick={addTodo} className="btn btn-primary">
+						Add Todo
+					</button>
+				</div>
 			</div>
 
-			<h3>Todo List</h3>
+			{todos.length > 0 ? (
+				<h3 className="text-center my-2">Todo List</h3>
+			) : (
+				<p>There are no Todo items</p>
+			)}
 
-			<ul>
+			<ul className="list-group">
 				{todos.map(todo => (
-					<li key={todo.id}>
+					<li
+						key={todo.id}
+						className="list-group-item d-flex justify-content-between align-items-center"
+					>
 						{todo.text}
-						<button onClick={() => removeTodo(todo.id)}>Remove</button>
+						<button
+							onClick={() => removeTodo(todo.id)}
+							className="btn btn-danger btn-sm"
+						>
+							Remove
+						</button>
 					</li>
 				))}
 			</ul>
