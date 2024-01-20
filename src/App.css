@@ -14,4 +14,10 @@ ul {
 
 li {
 	margin: 10px 0;
+	border: 1px solid #ccc; /* Add this line to give each list item a border */
+	padding: 10px;
+}
+
+.input-group {
+	margin-bottom: 15px;
 }
