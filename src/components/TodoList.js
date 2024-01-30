@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Todo from "./Todo"
 
 const TodoList = () => {
 	const [todos, setTodos] = useState([])
@@ -43,18 +44,7 @@ const TodoList = () => {
 
 			<ul className="list-group">
 				{todos.map(todo => (
-					<li
-						key={todo.id}
-						className="list-group-item d-flex justify-content-between align-items-center"
-					>
-						{todo.text}
-						<button
-							onClick={() => removeTodo(todo.id)}
-							className="btn btn-danger btn-sm"
-						>
-							Remove
-						</button>
-					</li>
+					<Todo todo={todo} removeTodo={removeTodo} />
 				))}
 			</ul>
 		</div>
