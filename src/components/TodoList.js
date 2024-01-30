@@ -44,7 +44,7 @@ const TodoList = () => {
 
 			<ul className="list-group">
 				{todos.map(todo => (
-					<Todo todo={todo} removeTodo={removeTodo} />
+					<Todo key={todo.id} todo={todo} removeTodo={removeTodo} />
 				))}
 			</ul>
 		</div>
