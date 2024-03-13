@@ -39,9 +39,10 @@ const TodoList = () => {
 			{todos.length > 0 ? (
 				<h3 className="text-center my-2">Todo List</h3>
 			) : (
-				<p>There are no Todo items</p>
+				<p>There are no Todo items at the moment</p>
 			)}
 
+			{/* display todo items */}
 			<ul className="list-group">
 				{todos.map(todo => (
 					<Todo key={todo.id} todo={todo} removeTodo={removeTodo} />
