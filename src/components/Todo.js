@@ -6,7 +6,7 @@ const Todo = ({ todo, removeTodo }) => {
 				onClick={() => removeTodo(todo.id)}
 				className="btn btn-danger btn-sm"
 			>
-				Remove {todo.id}
+				Remove
 			</button>
 		</li>
 	)
